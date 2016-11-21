@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace consultants.Models
 {
     public class Assignment
     {
+        [Key]
         public int Assignment_ID { get; set; }
         public string Assignment_Name { get; set; }
 
