@@ -6,7 +6,7 @@ using System.Web;
 
 namespace consultants.Data_Access_Layer
 {
-    public class AssignmentRepository:IAssignmentRepository
+    public class AppContext:IAssignmentRepository
     {
         private ConsoltantsContext db = new ConsoltantsContext();
 

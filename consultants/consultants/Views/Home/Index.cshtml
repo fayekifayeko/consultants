@@ -8,21 +8,24 @@
 
 <div id="bodyContainer" ng-app="ConsApp" ng-controller="ConsCtrl">
     <section id="content">
+        {{artists2}}
         <div class="container">
             <div class="row">
-                <div class="flip-container text-center col-md-12" >
-                    {{g}}
-                    {{assignments}}
-                    @*<table>
-                        <tbody>
-                            <tr ng-repeat="(key,value) in assignments">
-                                <td>{{$value}}</td>
-                                
-                            </tr>
-                        </tbody>
-                    </table>*@
+                <div ng-repeat="item in artists2">
+                    <p>{{item.Assignment_Name}}</p>
                 </div>
-            </div>
+
+                    @*<div class="flip-container text-center col-md-12" >
+                <table>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in artists2">
+                            <td>{{value}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>*@
+</div>
         </div>
     </section>
 </div>

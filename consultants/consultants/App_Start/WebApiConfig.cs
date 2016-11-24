@@ -12,7 +12,7 @@ namespace consultants
         public static void Register(HttpConfiguration config)
         {
             var container = new UnityContainer();
-                container.RegisterType <IAssignmentRepository, AssignmentRepository > (new HierarchicalLifetimeManager());
+                container.RegisterType <IAssignmentRepository, Data_Access_Layer.AppContext > (new HierarchicalLifetimeManager());
                 config.DependencyResolver = new UnityResolver(container);
             // Web API configuration and services
 
