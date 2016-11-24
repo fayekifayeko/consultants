@@ -242,6 +242,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\Consultant.cs" />
+    <Compile Include="Models\Details.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

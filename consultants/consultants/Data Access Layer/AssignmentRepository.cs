@@ -10,6 +10,13 @@ namespace consultants.Data_Access_Layer
     {
         private ConsoltantsContext db = new ConsoltantsContext();
 
+        public IEnumerable<Consultant> GetAllDetails()
+        {
+
+            return db.Consultants.Include("Assignments");
+                
+                }
+
         public IEnumerable<Assignment> GetAll()
         {
             return db.Assignments;

@@ -34,6 +34,11 @@ namespace ConsultantsUnitTest
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Consultant> GetAllDetails()
+        {
+            throw new NotImplementedException();
+        }
+
         public Assignment GetById(int id)
         {
             throw new NotImplementedException();

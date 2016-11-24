@@ -7,27 +7,33 @@
 }
 
 <div id="bodyContainer" ng-app="ConsApp" ng-controller="ConsCtrl">
-    <section id="content">
-        {{artists2}}
+    
         <div class="container">
-            <div class="row">
-                <div ng-repeat="item in artists2">
-                    <p>{{item.Assignment_Name}}</p>
-                </div>
 
-                    @*<div class="flip-container text-center col-md-12" >
-                <table>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Assignment_Name</th>
+                            <th>Client</th>
+                            <th>StartDate</th>
+                            <th>EndDate</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <tr ng-repeat="(key,value) in artists2">
-                            <td>{{value}}</td>
-
+                        <tr ng-repeat="(key,value)  in assignments track by key">
+                            <td>{{value.Assignment_Name}}</td>
+                            <td>{{value.Client_Name}}</td>
+                            <td>{{value.Start_Date}}</td>
+                            <td>{{value.End_Date}}</td>
+                           
                         </tr>
                     </tbody>
                 </table>
-            </div>*@
-</div>
-        </div>
-    </section>
+
+               
+                </div>
+            </div>
 </div>
 @section scripts {
     @Scripts.Render("~/Scripts/angular.js")

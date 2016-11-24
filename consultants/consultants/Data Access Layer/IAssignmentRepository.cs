@@ -9,6 +9,9 @@ namespace consultants.Data_Access_Layer
     public interface IAssignmentRepository
     {
         IEnumerable<Assignment> GetAll();
+        IEnumerable<Consultant> GetAllDetails();
+
+
         Assignment GetById(int id);
         void Add(Assignment assignment);
     }
