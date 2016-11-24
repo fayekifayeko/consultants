@@ -6,10 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Caching;
+using System.Web.Mvc;
 
 namespace consultants.Controllers
 
 {
+    //[System.Web.Mvc.RequireHttps]
+    //[RequireHttps]
     public class AssignmentController: ApiController
     {
         private IAssignmentRepository _repository;
