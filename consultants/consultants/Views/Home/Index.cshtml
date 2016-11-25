@@ -8,24 +8,31 @@
 
 <div id="bodyContainer" ng-app="ConsApp" ng-controller="ConsCtrl">
     
-        <div class="container">
-
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>Consultant Name</th>
                             <th>Assignment_Name</th>
                             <th>Client</th>
+
+                            <th>Percentage</th>
                             <th>StartDate</th>
                             <th>EndDate</th>
+                            <th>Comment</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="(key,value)  in assignments track by key">
+                        <tr ng-repeat="(key,value)  in assignments track by key" ng-class="{activee:{{value.Is_Deadline}} }">
+                            <td>{{value.Consultant_Name}}</td>
                             <td>{{value.Assignment_Name}}</td>
                             <td>{{value.Client_Name}}</td>
+                            <td>{{value.Percentage}}</td>
+
                             <td>{{value.Start_Date}}</td>
                             <td>{{value.End_Date}}</td>
+                            <td>{{value.Comment}}</td>
+
                            
                         </tr>
                     </tbody>
@@ -34,8 +41,7 @@
                
                 </div>
             </div>
-</div>
 @section scripts {
-    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/angular.min.js")
 @Scripts.Render("~/Scripts/app/consoltants-controller.js")
 }

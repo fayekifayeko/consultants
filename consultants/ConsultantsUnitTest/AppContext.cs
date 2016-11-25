@@ -29,7 +29,7 @@ namespace ConsultantsUnitTest
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Assignment> GetAll()
+        public List<Details> GetAll()
         {
             throw new NotImplementedException();
         }

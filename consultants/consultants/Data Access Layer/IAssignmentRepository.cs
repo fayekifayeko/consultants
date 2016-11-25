@@ -8,7 +8,7 @@ namespace consultants.Data_Access_Layer
 {
     public interface IAssignmentRepository
     {
-        IEnumerable<Assignment> GetAll();
+        List<Details> GetAll();
         IEnumerable<Consultant> GetAllDetails();
 
 

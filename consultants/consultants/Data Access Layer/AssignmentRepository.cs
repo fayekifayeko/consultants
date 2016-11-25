@@ -17,9 +17,20 @@ namespace consultants.Data_Access_Layer
                 
                 }
 
-        public IEnumerable<Assignment> GetAll()
+        public List<Details> GetAll()
         {
-            return db.Assignments;
+            return db.Assignments.Select(assgn => new Details
+            {
+                Assignment_ID = assgn.Assignment_ID,
+                Assignment_Name = assgn.Assignment_Name,
+                Client_Name = assgn.Client_Name,
+                Percentage = assgn.Percentage,
+                Start_Date = assgn.Start_Date,
+                End_Date = assgn.End_Date,
+                Comment = assgn.Comment,
+                Consultant_Name = assgn.Consultant.Name,
+                Is_Deadline = System.Data.Entity.DbFunctions.DiffDays(DateTime.Now,assgn.End_Date) < 30 ? true : false 
+            }).ToList();
         }
         public Assignment GetById(int id)
         {

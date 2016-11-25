@@ -15,6 +15,8 @@ namespace consultants.Models
         public DateTime Start_Date { get; set; }
         public DateTime End_Date { get; set; }
         public string Comment { get; set; }
-        public int Consultant_ID { get; set; }
-    }
+        public string Consultant_Name { get; set; }
+        public bool Is_Deadline { get; set; }
+
+}
 }

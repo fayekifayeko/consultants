@@ -21,7 +21,7 @@ namespace consultants.Controllers
         {
             _repository = repository;
         }
-        public IEnumerable<Consultant> Get()
+        public List<Details> Get()
         {
 
             //      var ctx = HttpContext.Current;
@@ -45,7 +45,7 @@ namespace consultants.Controllers
             //          My_Result = ctx.Cache["CacheKey"] as IEnumerable<Assignment>;
 
             //      return My_Result;
-            return _repository.GetAllDetails();
+            return _repository.GetAll();
         }
 
         public IHttpActionResult Get(int id)
