@@ -1,4 +1,5 @@
-﻿using consultants.Models;
+﻿using consultants.Data_Access_Layer;
+using consultants.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace ConsultantsUnitTest
 {
-    public interface IAppContext : IDisposable
+    public interface IAppContext : IDisposable,IAssignmentRepository
+
     {
-        DbSet<Assignment> Assignments { get; }
+        DbSet<Details> Details { get; }
+
     }
 }

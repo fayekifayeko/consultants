@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ConsultantsUnitTest
 {
-    class TestAssignmentDbSet: TestDbSet<Assignment>
+    class TestAssignmentDbSet: TestDbSet<Details>
     {
-        public override Assignment Find(params object[] keyValues)
+        public override Details Find(params object[] keyValues)
         {
             return this.SingleOrDefault(ass => ass.Assignment_ID == (int)keyValues.Single());
         }
