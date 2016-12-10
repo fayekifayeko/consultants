@@ -13,7 +13,7 @@ namespace consultants.Controllers
 {
     //[System.Web.Mvc.RequireHttps]
     //[RequireHttps]
-    public class AssignmentController: ApiController
+    public class AssignmentController : ApiController
     {
         private IAssignmentRepository _repository;
         List<Details> My_Result;
@@ -24,38 +24,85 @@ namespace consultants.Controllers
         public List<Details> Get()
         {
 
-                 var ctx = HttpContext.Current;
-                 if (ctx != null)
-                 {
-                     if (ctx.Cache["CacheKey"] == null)
-                     {
-                          My_Result = _repository.GetAll();
-                      ctx.Cache.Insert("CacheKey", My_Result, null,
-            System.Web.Caching.Cache.NoAbsoluteExpiration,
-            TimeSpan.FromMinutes(1));
+            var ctx = HttpContext.Current;
+            if (ctx != null)
+            {
+                if (ctx.Cache["CacheKey"] == null)
+                {
+                    My_Result = _repository.GetAll();
+                    ctx.Cache.Insert("CacheKey", My_Result, null,
+          System.Web.Caching.Cache.NoAbsoluteExpiration,
+          TimeSpan.FromMinutes(1));
 
-                     }
+                }
 
-                 }
-
-
+            }
 
 
 
-                     My_Result = ctx.Cache["CacheKey"] as List<Details>;
 
-                  return My_Result;
+
+            My_Result = ctx.Cache["CacheKey"] as List<Details>;
+
+            return My_Result;
             //return _repository.GetAll();
         }
 
-        public IHttpActionResult Get(int id)
+        public Assignment Get(int id)
         {
             var assignment = _repository.GetById(id);
             if (assignment == null)
             {
-                return NotFound();
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             }
-            return Ok(assignment);
+            return assignment;
+        }
+        [System.Web.Http.HttpPost]
+        public HttpStatusCodeResult Post(Assignment assignment)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.Add(assignment);
+                return new HttpStatusCodeResult(200);
+
+
+            }
+            else
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+
+        }
+        [System.Web.Http.HttpPut]
+        public HttpStatusCodeResult Put(int assignment_Id, Assignment assignment)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.update(assignment_Id,assignment);
+                return new HttpStatusCodeResult(200);
+
+
+            }
+            else
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+
+        }
+        [System.Web.Http.HttpDelete]
+        HttpStatusCodeResult Delete(int assignment_Id)
+        {
+            try
+            {
+                _repository.delete(assignment_Id);
+                return new HttpStatusCodeResult(200);
+
+            }
+            catch
+            {
+              throw new HttpResponseException(System.Net.HttpStatusCode.InternalServerError);
+
+            }
         }
 
     }

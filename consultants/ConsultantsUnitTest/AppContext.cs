@@ -30,6 +30,11 @@ namespace ConsultantsUnitTest
             throw new NotImplementedException();
         }
 
+        public void delete(int assignment_Id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Dispose()
         {
             throw new NotImplementedException();
@@ -56,6 +61,11 @@ namespace ConsultantsUnitTest
         //}
 
         public Assignment GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void update(int assignment_Id, Assignment assignment)
         {
             throw new NotImplementedException();
         }

@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
+using System.Web.Http;
 
 namespace consultants.Data_Access_Layer
 {
@@ -34,12 +36,36 @@ namespace consultants.Data_Access_Layer
         }
         public Assignment GetById(int id)
         {
-            return db.Assignments.FirstOrDefault(p => p.Assignment_ID == id);
-        }
+            Assignment assignment =  db.Assignments.FirstOrDefault(p => p.Assignment_ID == id);
+           
+            return assignment;        }
         public void Add(Assignment assignment)
         {
             db.Assignments.Add(assignment);
             db.SaveChanges();
+        }
+
+        public void delete(int assignment_Id)
+        {
+            var assignment = db.Assignments.FirstOrDefault(m => m.Assignment_ID == assignment_Id);
+            db.Assignments.Remove(assignment);
+           db.SaveChanges();
+        }
+
+        public void update(int assignment_Id, Assignment assignment)
+        {
+            var original = db.Assignments.FirstOrDefault(m => m.Assignment_ID == assignment.Assignment_ID);
+
+            original.Assignment_Name = assignment.Assignment_Name;
+            original.Client_Name =assignment.Client_Name;
+            original.Comment = assignment.Comment;
+            original.Consultant = assignment.Consultant;
+            original.Consultant_ID = assignment.Consultant_ID;
+            original.Start_Date = assignment.Start_Date;
+            original.End_Date = assignment.End_Date;
+            original.Percentage = assignment.Percentage;
+            
+           db.SaveChanges();
         }
 
         protected void Dispose(bool disposing)

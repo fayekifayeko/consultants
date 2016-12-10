@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace consultants.Data_Access_Layer
 {
@@ -14,5 +15,7 @@ namespace consultants.Data_Access_Layer
 
         Assignment GetById(int id);
         void Add(Assignment assignment);
+        void delete(int assignment_Id);
+        void update(int assignment_Id,Assignment assignment);
     }
 }
