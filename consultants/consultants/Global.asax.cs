@@ -1,4 +1,8 @@
-﻿using System;
+﻿using consultants.Data_Access_Layer;
+using consultants.Resolver;
+using Microsoft.Practices.Unity;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +22,10 @@ namespace consultants
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+
         }
+
     }
 }

@@ -12,6 +12,7 @@ namespace consultants.Models
         public int Consultant_ID { get; set; }
         public string Name { get; set; }
        
-        public virtual ICollection<Assignment> Enrollments { get; set; }
+        public virtual ICollection<Assignment> Assignments { get; set; }
+
     }
 }

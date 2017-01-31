@@ -54,9 +54,9 @@ namespace consultants
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "300637533644630",
+             appSecret: "a607454b4e7d00d7a02337b7b3f61c03");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
